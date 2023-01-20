@@ -39,6 +39,23 @@
     cursor: pointer;
   }
 
+  .floating-btn{
+    width: 80px;
+    height: 80px;
+    background: #99C8CD ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius : 58%;
+    color: #ffffff;
+    font-size: 40px;
+    box-shadow: 2px 2px 5px rgba(0,0, 0, 0.25);
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+
     </style>
     <script>
       var participants = [];
@@ -112,6 +129,6 @@
       </div>
       <input type="submit" value="Submit Quiz" onclick="calculateScore()">
     </form>
-    <a href="pro.html" style="position: fixed; bottom: 10px;left: 0px; color: brown;">back</a>
+    <a href="pro.html" class="floating-btn"><i class="fa fa-home"></i></a>
   </body>
 </html>
