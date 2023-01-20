@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technology Addiction Quiz</title>
+    <style>
+        body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-top: 50px;
+    color: #13171B;
+  }
+  
+  form {
+    margin: 0 auto;
+    width: 600px;
+    padding: 20px;
+    background-color: #99C8CD;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #212A31;
+  }
+  
+  #question1, #question2, #question3 {
+    margin-top: 20px;
+    color: #13171B;
+  }
+  
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+    </style>
+    <script>
+      var participants = [];
+      var winners = [];
+      
+      function calculateScore() {
+        var playerName = document.getElementById("playerName").value;
+        participants.push(playerName);
+        
+        var score = 0;
+        var q1 = document.querySelector('input[name="q1"]:checked').value;
+        var q2 = document.querySelector('input[name="q2"]:checked').value;
+        var q3 = document.querySelector('input[name="q3"]:checked').value;
+        
+        if (q1 == "D") {
+          score++;
+        }
+        if (q2 == "D") {
+          score++;
+        }
+        if (q3 == "D") {
+          score++;
+        }
+        
+        alert(playerName + ", your score is: " + score + " out of 3");
+        
+        if (score == 3) {
+          winners.push(playerName);
+          alert("Congratulations! You are a winner!");
+        }
+        
+        updateWinnersList();
+      }
+      
+      function updateWinnersList() {
+        var winnersList = document.getElementById("winnersList");
+        winnersList.innerHTML = "";
+        for (var i = 0; i < winners.length; i++) {
+          var winnerName = document.createElement("li");
+          winnerName.innerHTML = winners[i];
+          winnersList.appendChild(winnerName);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Technology Addiction Quiz</h1>
+    <form>
+      <label for="playerName">Enter your name:</label>
+      <input type="text" id="playerName">
+      <div id="question1">
+        <p>What is the primary symptom of technology addiction?</p>
+        <input type="radio" name="q1" value="A"> Difficulty focusing on tasks<br>
+        <input type="radio" name="q1" value="B"> Increased anxiety<br>
+        <input type="radio" name="q1" value="C"> Difficulty sleeping<br>
+        <input type="radio" name="q1" value="D"> All of the above
+      </div>
+      <div id="question2">
+        <p>Which of the following is not a risk factor for technology addiction?</p>
+        <input type="radio" name="q2" value="A"> Lack of social support<br>
+        <input type="radio" name="q2" value="B"> High stress levels<br>
+        <input type="radio" name="q2" value="C"> Eating a balanced diet<br>
+        <input type="radio" name="q2" value="D"> Having a high income
+      </div>
+      <div id="question3">
+        <p>What is a strategy for preventing technology addiction?</p>
+        <input type="radio" name="q3" value="A"> Setting limits on technology use<br>
+        <input type="radio" name="q3" value="B"> Increasing awareness of the risks of addiction<br>
+        <input type="radio" name="q3" value="C"> Providing support and resources for those struggling with addiction<br>
+        <input type="radio" name="q3" value="D">All of the above
+      </div>
+      <input type="submit" value="Submit Quiz" onclick="calculateScore()">
+    </form>
+    <a href="pro.html" style="position: fixed; bottom: 10px;left: 0px; color: brown;">back</a>
+  </body>
+</html>
